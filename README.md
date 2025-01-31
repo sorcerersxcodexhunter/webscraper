@@ -30,5 +30,5 @@ Matplotlib / Plotly: Data visualization for price trends.
 
 SMTP / Twilio / Pushbullet: For sending notifications.
 
-Installation
+
 
