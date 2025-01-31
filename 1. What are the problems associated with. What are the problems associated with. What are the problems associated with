@@ -1,0 +1,45 @@
+1.		What are the problems associated with N-Gram model? How are these problems handled?	
+        The **N-gram model** is a statistical language model used to predict the likelihood of a sequence of words based on their probabilities. While it is widely used due to its simplicity and efficiency, it has several problems. Here’s an analysis of these problems and how they are addressed:
+
+### Problems with N-Gram Model
+1. **Data Sparsity**:  
+   N-gram models require a large amount of data to estimate probabilities accurately. For higher-order N-grams (e.g., trigrams or 4-grams), many possible sequences may not appear in the training data, resulting in zero probabilities for valid sequences.
+
+2. **Fixed Context Length**:  
+   N-gram models rely only on the last (N-1) words for prediction. This fixed-length context can miss long-range dependencies and ignore global context.
+
+3. **Exponential Growth in Parameters**:  
+   The number of parameters grows exponentially with the size of the vocabulary and the order of the N-gram (e.g., trigrams or 4-grams). This increases storage and computational requirements.
+
+4. **Ambiguity in Representation**:  
+   N-gram models consider only surface-level word sequences without understanding semantics or syntax, leading to ambiguities in prediction.
+
+5. **Handling Out-of-Vocabulary (OOV) Words**:  
+   Words or sequences not seen in the training data cannot be handled effectively, leading to poor generalization.
+
+---
+
+### Solutions to N-Gram Model Problems
+1. **Smoothing Techniques**:  
+   To address zero probabilities due to data sparsity, various smoothing methods are used:
+   - **Additive Smoothing (Laplace Smoothing)**: Adds a small constant to all counts to ensure no zero probabilities.
+   - **Good-Turing Smoothing**: Reassigns probability mass from frequent to unseen N-grams.
+   - **Backoff and Interpolation**: Use lower-order N-grams (e.g., bigrams or unigrams) when higher-order N-grams have zero probabilities.
+
+2. **Reduction in Model Order**:  
+   Instead of relying on high-order N-grams, lower-order models can be combined with interpolation to balance complexity and context length.
+
+3. **Using Larger Datasets**:  
+   To mitigate data sparsity, larger and more diverse corpora are used for training. This increases the likelihood of capturing rarer N-grams.
+
+4. **Incorporating Subword Information**:  
+   For handling OOV words, techniques like character-level N-grams or byte-pair encoding (BPE) are employed. These methods break down unknown words into smaller components, enabling generalization to unseen words.
+
+5. **Alternative Models**:  
+   - **Neural Language Models (e.g., RNNs, Transformers)**: These models use word embeddings and context vectors to capture long-range dependencies and semantic relationships.
+   - **Probabilistic Models**: Advanced techniques like Hidden Markov Models (HMMs) or Bayesian frameworks can improve handling of uncertainties.
+
+6. **Weighting and Contextual Adjustments**:  
+   Assigning weights to N-grams based on their contextual relevance or adapting to domain-specific data can enhance performance.
+
+By leveraging these techniques, the limitations of the N-gram model are mitigated, and its practical applicability is improved.

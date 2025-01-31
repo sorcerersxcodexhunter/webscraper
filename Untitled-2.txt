@@ -1,0 +1,5 @@
+from docx import *
+
+# Open the .docx file
+document = opendocx('/mnt/data/Corrected_Answered_Question_Bank.docx')
+fullText=getdocumenttext(document)

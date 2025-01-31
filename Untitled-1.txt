@@ -1,0 +1,5 @@
+-- database: c:\Users\91933\OneDrive\Documents\web_scrapping_project\scraper.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+SELECT * FROM "Prices";
